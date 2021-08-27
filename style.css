@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body{
+    font-family: 'Press Start 2P';
+    background-color: rgb(255, 255, 255);
+    background-image: url("backdrop.jpg") ;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+h1{
+    text-align: center;
+    font-size: 50px;
+    color: rgb(0, 0, 0);
+
+}
+
+img{
+    width: 100px;
+    height: 100px;
+    justify-items: center;
+    position:flex;
+
+}
+
+button{
+    display:table-row;
+    text-align: center;
+    font-size: 25pt;
+    border-style:double;
+    background-color: transparent;
+    font-family: 'Press Start 2P';
+    color: rgb(255, 255, 255);
+}
+
+#petimgs{
+    display:flex;
+    justify-content: space-evenly;
+    border-style: none;
+    background-color: transparent;
+    margin-top: 420px;
+ 
+}
+#petname {
+    display:fixed;
+    text-align: center;
+}
+
+
+#petcontainer{
+    display: flex;  
+    justify-content:space-evenly;
+    margin-top:5px ;
+    margin-left:1.5%;
+    padding-left: 1.5%;
+}
+
+#snakebtn:hover{
+    color:rgb(37, 206, 80);
+}
+
+#dogbtn:hover{
+    color: rgb(111, 0, 255);
+}
+
+#catbtn:hover{
+    color: rgb(234, 0, 255);
+}
+
+
+#methodscontainer{    
+    margin-top: 50px;
+    margin-left: 100px;
+    text-align: center;
+    display: table; 
+    justify-content: space-evenly;
+
+}
+
+#progressbars{
+    display: flex;
+    margin-left:650px;
+    margin-top: -320px;
+    color: rgb(255, 255, 255);
+    visibility: visible;
+
+
+}
