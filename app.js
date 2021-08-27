@@ -1,6 +1,6 @@
 let petContainer = document.querySelector("#petcontainer")
 let methodContainer = document.querySelector("#methodscontainer")
-let deadPet = document.querySelector(".deadPet");
+// let deadPet = document.querySelector(".deadPet");
 
 //buttons
 let selectDog = document.querySelector("#dogbtn")
@@ -66,13 +66,13 @@ let petToilet = document.querySelector("#toiletbtn")
 
 giveFood.addEventListener("click", () => {
     hungerBar.value += 20;
-    healthBar.value += 10;
+//     healthBar.value += 10;
     toiletBar.value -= 10;
 })
 
 giveDrink.addEventListener("click", () => {
     thirstBar.value += 20;
-    healthBar.value += 10;
+//     healthBar.value += 10;
     toiletBar.value -= 10;
 })
 
@@ -83,7 +83,7 @@ petPlay.addEventListener("click", () => {
 
 petSleep.addEventListener("click", () =>{
     energyBar.value += 20;
-    healthBar.value +=10;
+//     healthBar.value +=10;
 })
 
 petToilet.addEventListener("click", () =>{
@@ -97,23 +97,23 @@ let thirstBar = document.querySelector("#thirstbar")
 let energyBar = document.querySelector("#energybar")
 let boredomBar = document.querySelector("#boredbar")
 let toiletBar = document.querySelector("#toiletbar")
-let healthBar = document.querySelector("#healthbar")
+// let healthBar = document.querySelector("#healthbar")
 
 hungerBar.value = 100;
 thirstBar.value = 100;
 energyBar.value = 100;
 boredomBar.value = 100;
 toiletBar.value = 100;
-healthBar.value = 100;
+// healthBar.value = 100;
 
 let hunger = setInterval(() => {
     hungerBar.value--;
-    healthBar.value--;
+//     healthBar.value--;
 }, 200);
 
 let thirst = setInterval(() => {
     thirstBar.value--;
-    healthBar.value--;
+//     healthBar.value--;
 }, 222);
 
 let energy = setInterval(() => {
@@ -129,6 +129,6 @@ let toilet = setInterval(() => {
 },400)
 
 
-let health = (healthBar.value) 
+// let health = (healthBar.value) 
    
 
