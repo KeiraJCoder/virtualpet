@@ -23,6 +23,23 @@ let progressBars = document.querySelector("#progressbars")
 methodContainer.style.display = "none"
 progressBars.style.display = "none"
 
+Sure! Here's what the code to implement the checks for the pet's death would look like:
+
+scss
+Copy code
+//app.js
+// ...
+
+function checkPetDeath() {
+    // Check if any of the bars have reached 0
+    if (hungerBar.value === 0 || thirstBar.value === 0 || energyBar.value === 0 || boredomBar.value === 0 || toiletBar.value === 0) {
+        // If so, set the health bar to 0 and display the "Game Over" message
+        healthBar.value = 0;
+        gameOver.style.display = "block";
+    }
+}
+
+// ...
 const healthbar = document.getElementById("healthbar");
 
 if (healthbar.value <= 0) {
@@ -79,20 +96,23 @@ giveDrink.addEventListener("click", () => {
     thirstBar.value += 20;
 //     healthBar.value += 10;
     toiletBar.value -= 10;
-})
+    checkPetDeath();})
 
 petPlay.addEventListener("click", () => {
     energyBar.value -= 10;
     boredomBar.value += 10;
+  checkPetDeath();
 })
 
 petSleep.addEventListener("click", () =>{
     energyBar.value += 20;
 //     healthBar.value +=10;
+  checkPetDeath();
 })
 
 petToilet.addEventListener("click", () =>{
     toiletBar.value += 20;
+  checkPetDeath();
 })
 
 //progress bars
