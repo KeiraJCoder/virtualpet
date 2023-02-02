@@ -23,7 +23,12 @@ let progressBars = document.querySelector("#progressbars")
 methodContainer.style.display = "none"
 progressBars.style.display = "none"
 
+const healthbar = document.getElementById("healthbar");
 
+if (healthbar.value <= 0) {
+  const gameover = document.getElementById("gameover");
+  gameover.style.display = "block";
+}
 
 selectDog.addEventListener("click", () => {
     P = new Dog(prompt("What is your Dogs name going to be?"));
