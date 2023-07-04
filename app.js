@@ -100,51 +100,56 @@ petToilet.addEventListener("click", () => {
   toiletBar.value = Math.min(100, toiletBar.value + 20);
   updateHealth();
 });
-
 selectDog.addEventListener("click", () => {
-  const name = prompt("What is your Dog's name going to be?");
-  if (name) {
-    P = new Dog(name);
-    methodContainer.style.display = "block";
-    progressBars.style.display = "block";
-    petContainer.style.display = "none";
-    petName.textContent = `${P.name}`;
-    P.startGame();
+    const name = prompt("What is your Dog's name going to be?");
+    if (name) {
+        P = new Dog(name);
+        methodContainer.style.display = "block";
+        progressBars.style.display = "flex";
+        petContainer.style.display = "none";
+        petName.textContent = `${P.name}`;
+        P.startGame();
 
-    // Hide the other animal buttons
-    selectCat.style.display = "none";
-    selectSnake.style.display = "none";
-  }
+        // Hide images and buttons for other animals
+        catImg.style.display = "none";
+        snakeImg.style.display = "none";
+        selectCat.style.display = "none";
+        selectSnake.style.display = "none";
+    }
 });
 
 selectSnake.addEventListener("click", () => {
-  const name = prompt("What is your Snake's name going to be?");
-  if (name) {
-    P = new Snake(name);
-    methodContainer.style.display = "block";
-    progressBars.style.display = "block";
-    petContainer.style.display = "none";
-    petName.textContent = `${P.name}`;
-    P.startGame();
+    const name = prompt("What is your Snake's name going to be?");
+    if (name) {
+        P = new Snake(name);
+        methodContainer.style.display = "block";
+        progressBars.style.display = "flex";
+        petContainer.style.display = "none";
+        petName.textContent = `${P.name}`;
+        P.startGame();
 
-    // Hide the other animal buttons
-    selectDog.style.display = "none";
-    selectCat.style.display = "none";
-  }
+        // Hide images and buttons for other animals
+        dogImg.style.display = "none";
+        catImg.style.display = "none";
+        selectDog.style.display = "none";
+        selectCat.style.display = "none";
+    }
 });
 
 selectCat.addEventListener("click", () => {
-  const name = prompt("What is your Cat's name going to be?");
-  if (name) {
-    P = new Cat(name);
-    methodContainer.style.display = "block";
-    progressBars.style.display = "block";
-    petContainer.style.display = "none";
-    petName.textContent = `${P.name}`;
-    P.startGame();
+    const name = prompt("What is your Cat's name going to be?");
+    if (name) {
+        P = new Cat(name);
+        methodContainer.style.display = "block";
+        progressBars.style.display = "flex";
+        petContainer.style.display = "none";
+        petName.textContent = `${P.name}`;
+        P.startGame();
 
-    // Hide the other animal buttons
-    selectDog.style.display = "none";
-    selectSnake.style.display = "none";
-  }
+        // Hide images and buttons for other animals
+        dogImg.style.display = "none";
+        snakeImg.style.display = "none";
+        selectDog.style.display = "none";
+        selectSnake.style.display = "none";
+    }
 });
