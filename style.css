@@ -17,8 +17,9 @@ h1{
 
 }
 
-#methodscontainer, #progressbars {
-    display: none;    
+#methodscontainer,
+#progressbars {
+    display: block;
 }
 
 img{
