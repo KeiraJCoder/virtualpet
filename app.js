@@ -103,6 +103,7 @@ petToilet.addEventListener("click", () => {
 
 selectDog.addEventListener("click", () => {
     const name = prompt("What is your Dog's name going to be?");
+    console.log("Dog selected");
     if (name) {
         P = new Dog(name);
         methodContainer.style.display = "block";
@@ -115,6 +116,7 @@ selectDog.addEventListener("click", () => {
 
 selectSnake.addEventListener("click", () => {
     const name = prompt("What is your Snake's name going to be?");
+    console.log("Snake selected");
     if (name) {
         P = new Snake(name);
         methodContainer.style.display = "block";
@@ -127,6 +129,7 @@ selectSnake.addEventListener("click", () => {
 
 selectCat.addEventListener("click", () => {
     const name = prompt("What is your Cat's name going to be?");
+    console.log("Cat selected");
     if (name) {
         P = new Cat(name);
         methodContainer.style.display = "block";
