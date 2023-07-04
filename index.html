@@ -11,8 +11,7 @@
 
 <body>
     <h1 id="petname">Choose your Pet!</h1>
-<div>
-    <div class ="methodscontainer" >
+    <div class="methodscontainer">
         <div id="methodscontainer">
             <button id="feedbtn">Feed</button>
             <button id="drinkbtn">Drink</button>
@@ -20,52 +19,43 @@
             <button id="sleepbtn">Sleep</button>
             <button id ="toiletbtn">Toilet</button>
         </div>
-    </div> 
-</div>
-<div>
-    <div>
-<div class ="petimgs">
-    <div id="petimgs">
-        <img src="images/cat.png" id="catimg">
-        <img src="images/dog.png" id="dogimg">
-        <img src="images/snake.png" id="snakeimg">
     </div>
-</div>
-</div>
-</div>
 
-<div class="progressbars">
-    <div id="progressbars">
-        <div>Hunger</div>
-        <progress id="hungerbar" max="100" width:50%>50%</progress>
-        <div>Thirst</div>
-        <progress id="thirstbar" max="100" width:50%> 50%</progress>
-        <div>Energy</div>
-        <progress id="energybar" max="100" width:50%> 50%</progress>
-        <div>Boredom</div>
-        <progress id="boredbar" max="100" width:50%> 50%</progress>
-        <div>Toilet</div>
-        <progress id ="toiletbar" max ="100" width:50%>50%</progress>
+    <div class="petimgs">
+        <div id="petimgs">
+            <img src="images/cat.png" id="catimg">
+            <img src="images/dog.png" id="dogimg">
+            <img src="images/snake.png" id="snakeimg">
+        </div>
     </div>
-</div>
 
-<div class ="petcontainer">
-    <div id="petcontainer">
-        <button type=button id="catbtn">Cat</button>
-        <button type=button id="dogbtn">Dog</button>
-        <button type=button id="snakebtn">Snake</button>
+    <div class="progressbars">
+        <div id="progressbars">
+            <div>Hunger</div>
+            <progress id="hungerbar" max="100" value="50"></progress>
+            <div>Thirst</div>
+            <progress id="thirstbar" max="100" value="50"></progress>
+            <div>Energy</div>
+            <progress id="energybar" max="100" value="50"></progress>
+            <div>Boredom</div>
+            <progress id="boredbar" max="100" value="50"></progress>
+            <div>Toilet</div>
+            <progress id ="toiletbar" max ="100" value="50"></progress>
+        </div>
+    </div>
+
+    <div class="petcontainer">
+        <div id="petcontainer">
+            <button type=button id="catbtn">Cat</button>
+            <button type=button id="dogbtn">Dog</button>
+            <button type=button id="snakebtn">Snake</button>
+        </div>
     </div>
 
     <div id="gameover" style="display: none;">Game Over</div>
-</div>
 
-</body>
-</html>
-
-
-
-<script src="pets.js"></script>
-<script src="app.js"></script>
+    <script src="pets.js"></script>
+    <script src="app.js"></script>
 </body>
 
 </html>
