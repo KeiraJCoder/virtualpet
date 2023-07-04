@@ -105,25 +105,37 @@ petToilet.addEventListener("click", () =>{
 })
 
 selectDog.addEventListener("click", () => {
-    P = new Dog(prompt("What is your Dog's name going to be?"));
-    methodContainer.style.display = "block";
-    progressBars.style.display = "block";
-    petContainer.style.display = "none";
-    petName.textContent = `${P.name}`;
+    const name = prompt("What is your Dog's name going to be?");
+    if (name) {
+        P = new Dog(name);
+        methodContainer.style.display = "block";
+        progressBars.style.display = "block";
+        petContainer.style.display = "none";
+        petName.textContent = `${P.name}`;
+        P.startGame(); // Call the startGame method on the pet object
+    }
 });
 
 selectSnake.addEventListener("click", () => {
-    P = new Snake(prompt("What is your Snake's name going to be?"));
-    methodContainer.style.display = "block";
-    progressBars.style.display = "block";
-    petContainer.style.display = "none";
-    petName.textContent = `${P.name}`;
+    const name = prompt("What is your Snake's name going to be?");
+    if (name) {
+        P = new Snake(name);
+        methodContainer.style.display = "block";
+        progressBars.style.display = "block";
+        petContainer.style.display = "none";
+        petName.textContent = `${P.name}`;
+        P.startGame(); // Call the startGame method on the pet object
+    }
 });
 
 selectCat.addEventListener("click", () => {
-    P = new Cat(prompt("What is your Cat's name going to be?"));
-    methodContainer.style.display = "block";
-    progressBars.style.display = "block";
-    petContainer.style.display = "none";
-    petName.textContent = `${P.name}`;
+    const name = prompt("What is your Cat's name going to be?");
+    if (name) {
+        P = new Cat(name);
+        methodContainer.style.display = "block";
+        progressBars.style.display = "block";
+        petContainer.style.display = "none";
+        petName.textContent = `${P.name}`;
+        P.startGame(); // Call the startGame method on the pet object
+    }
 });
