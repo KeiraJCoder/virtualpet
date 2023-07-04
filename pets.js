@@ -8,10 +8,9 @@ class CyberPet {
         this.energy = 50;
         this.toilet = 50;
         this.isSleeping = false;
+        this.overallHealth = 50;
         this.intervalID = 0;
     }
-
-    
 
     giveFood() {
         this.hunger -= 5;
@@ -20,12 +19,11 @@ class CyberPet {
         this.toilet += 2;
     }   
         
-     toilet(){
+    toilet(){
         this.toilet -= 5;
         this.hunger += 2;
         this.thirst += 3;
-     }   
-    
+    }   
 
     giveDrink() {
         this.thirst -= 5;
@@ -44,15 +42,17 @@ class CyberPet {
     play(){
         this.energy--; 
         this.bored += 5;
-
     }
 
     checkStatus(){
         return `Name: ${this.name}, Happiness: ${this.happiness}, Energy: ${this.energy}, Hunger: ${this.hunger}, Thirst: ${this.thirst}, Boredom: ${this.bored}`;
     }
+
+    // This function is to start the game for the specific pet
+    startGame(){
+        console.log("Game started for " + this.name);
+    }
 }
-
-
 
 class Dog extends CyberPet {
     constructor(name) {
@@ -69,26 +69,5 @@ class Snake extends CyberPet {
 class Cat extends CyberPet {
     constructor(name) {
         super(name)
-
     }
 }
-
-// const Bob = new Dog("Bob");
-// let Hoppy = new Snake("Hoppy");
-// let Roly = new Cat("Roly");
-
-
-
-// function alive(cyberPet){
-//     cyberPet.intervalID = setInterval(()=>{
-//         if (cyberPet.play == true || cyberPet.giveDrink == true || cyberPet.giveFood == true) {
-//             clearInterval(cyberPet.intervalID);
-//         } else {
-//             cyberPet.sleeping();
-//             console.log(cyberPet);
-//         }
-//     }, 3000)
-// };
-
-// console.log(Bob);
-// alive(Bob)
