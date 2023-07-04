@@ -37,105 +37,114 @@ toiletBar.value = 100;
 healthBar.value = 100;
 
 function updateHealth() {
-    healthBar.value = (hungerBar.value + thirstBar.value + energyBar.value + boredomBar.value + toiletBar.value) / 5;
-    if (healthBar.value <= 0) {
-        gameOver.style.display = "block";
-        clearInterval(hunger);
-        clearInterval(thirst);
-        clearInterval(energy);
-        clearInterval(bored);
-        clearInterval(toilet);
-    }
+  healthBar.value = (hungerBar.value + thirstBar.value + energyBar.value + boredomBar.value + toiletBar.value) / 5;
+  if (healthBar.value <= 0) {
+    gameOver.style.display = "block";
+    clearInterval(hunger);
+    clearInterval(thirst);
+    clearInterval(energy);
+    clearInterval(bored);
+    clearInterval(toilet);
+  }
 }
 
 let hunger = setInterval(() => {
-    hungerBar.value--;
-    updateHealth();
+  hungerBar.value--;
+  updateHealth();
 }, 200);
 
 let thirst = setInterval(() => {
-    thirstBar.value--;
-    updateHealth();
+  thirstBar.value--;
+  updateHealth();
 }, 222);
 
 let energy = setInterval(() => {
-    energyBar.value--;
-    updateHealth();
+  energyBar.value--;
+  updateHealth();
 }, 300);
 
 let bored = setInterval(() => {
-    boredomBar.value--;
-    updateHealth();
+  boredomBar.value--;
+  updateHealth();
 }, 300);
 
 let toilet = setInterval(() => {
-    toiletBar.value--;
-    updateHealth();
+  toiletBar.value--;
+  updateHealth();
 }, 400);
 
 giveFood.addEventListener("click", () => {
-    hungerBar.value = Math.min(100, hungerBar.value + 20);
-    toiletBar.value = Math.max(0, toiletBar.value - 10);
-    updateHealth();
+  hungerBar.value = Math.min(100, hungerBar.value + 20);
+  toiletBar.value = Math.max(0, toiletBar.value - 10);
+  updateHealth();
 });
 
 giveDrink.addEventListener("click", () => {
-    thirstBar.value = Math.min(100, thirstBar.value + 20);
-    toiletBar.value = Math.max(0, toiletBar.value - 10);
-    updateHealth();
+  thirstBar.value = Math.min(100, thirstBar.value + 20);
+  toiletBar.value = Math.max(0, toiletBar.value - 10);
+  updateHealth();
 });
 
 petPlay.addEventListener("click", () => {
-    energyBar.value = Math.max(0, energyBar.value - 10);
-    boredomBar.value = Math.min(100, boredomBar.value + 10);
-    updateHealth();
+  energyBar.value = Math.max(0, energyBar.value - 10);
+  boredomBar.value = Math.min(100, boredomBar.value + 10);
+  updateHealth();
 });
 
 petSleep.addEventListener("click", () => {
-    energyBar.value = Math.min(100, energyBar.value + 20);
-    updateHealth();
+  energyBar.value = Math.min(100, energyBar.value + 20);
+  updateHealth();
 });
 
 petToilet.addEventListener("click", () => {
-    toiletBar.value = Math.min(100, toiletBar.value + 20);
-    updateHealth();
+  toiletBar.value = Math.min(100, toiletBar.value + 20);
+  updateHealth();
 });
 
 selectDog.addEventListener("click", () => {
-    const name = prompt("What is your Dog's name going to be?");
-    console.log("Dog selected");
-    if (name) {
-        P = new Dog(name);
-        methodContainer.style.display = "block";
-        progressBars.style.display = "block";
-        petContainer.style.display = "none";
-        petName.textContent = `${P.name}`;
-        P.startGame();
-    }
+  const name = prompt("What is your Dog's name going to be?");
+  if (name) {
+    P = new Dog(name);
+    methodContainer.style.display = "block";
+    progressBars.style.display = "block";
+    petContainer.style.display = "none";
+    petName.textContent = `${P.name}`;
+    P.startGame();
+
+    // Hide the other animal buttons
+    selectCat.style.display = "none";
+    selectSnake.style.display = "none";
+  }
 });
 
 selectSnake.addEventListener("click", () => {
-    const name = prompt("What is your Snake's name going to be?");
-    console.log("Snake selected");
-    if (name) {
-        P = new Snake(name);
-        methodContainer.style.display = "block";
-        progressBars.style.display = "block";
-        petContainer.style.display = "none";
-        petName.textContent = `${P.name}`;
-        P.startGame();
-    }
+  const name = prompt("What is your Snake's name going to be?");
+  if (name) {
+    P = new Snake(name);
+    methodContainer.style.display = "block";
+    progressBars.style.display = "block";
+    petContainer.style.display = "none";
+    petName.textContent = `${P.name}`;
+    P.startGame();
+
+    // Hide the other animal buttons
+    selectDog.style.display = "none";
+    selectCat.style.display = "none";
+  }
 });
 
 selectCat.addEventListener("click", () => {
-    const name = prompt("What is your Cat's name going to be?");
-    console.log("Cat selected");
-    if (name) {
-        P = new Cat(name);
-        methodContainer.style.display = "block";
-        progressBars.style.display = "block";
-        petContainer.style.display = "none";
-        petName.textContent = `${P.name}`;
-        P.startGame();
-    }
+  const name = prompt("What is your Cat's name going to be?");
+  if (name) {
+    P = new Cat(name);
+    methodContainer.style.display = "block";
+    progressBars.style.display = "block";
+    petContainer.style.display = "none";
+    petName.textContent = `${P.name}`;
+    P.startGame();
+
+    // Hide the other animal buttons
+    selectDog.style.display = "none";
+    selectSnake.style.display = "none";
+  }
 });
