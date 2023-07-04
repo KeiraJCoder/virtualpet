@@ -105,31 +105,25 @@ petToilet.addEventListener("click", () =>{
 })
 
 selectDog.addEventListener("click", () => {
-    P = new Dog(prompt("What is your Dogs name going to be?"));
-    methodContainer.style.display = "block"
-    snakeImg.style.display = "none"
-    catImg.style.display = "none"
-    progressBars.style.display = "block"
-    petContainer.style.display = "none"
+    P = new Dog(prompt("What is your Dog's name going to be?"));
+    methodContainer.style.display = "block";
+    progressBars.style.display = "block";
+    petContainer.style.display = "none";
     petName.textContent = `${P.name}`;
 });
 
 selectSnake.addEventListener("click", () => {
-    P = new Snake(prompt("What is your Snakes name going to be?"));
-    methodContainer.style.display = "block"
-    petContainer.style.display = "none"
-    dogImg.style.display = "none"
-    catImg.style.display = "none"
-    progressBars.style.display = "block"
+    P = new Snake(prompt("What is your Snake's name going to be?"));
+    methodContainer.style.display = "block";
+    progressBars.style.display = "block";
+    petContainer.style.display = "none";
     petName.textContent = `${P.name}`;
 });
 
 selectCat.addEventListener("click", () => {
-    P = new Cat(prompt("What is your Cats name going to be?"));
-    methodContainer.style.display = "block"
-    dogImg.style.display = "none"
-    snakeImg.style.display = "none"
-    petContainer.style.display = "none"
-    progressBars.style.display = "block"
+    P = new Cat(prompt("What is your Cat's name going to be?"));
+    methodContainer.style.display = "block";
+    progressBars.style.display = "block";
+    petContainer.style.display = "none";
     petName.textContent = `${P.name}`;
 });
