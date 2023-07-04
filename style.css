@@ -114,5 +114,10 @@ button{
 }
 
 #healthbar {
+    appearance: none;
+    height: 20px;
+    width: 100%;
     background-color: red;
+    border-radius: 10px;
+    outline: none;
 }
