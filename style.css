@@ -40,13 +40,11 @@ button{
     color: rgb(255, 255, 255);
 }
 
-#petimgs{
-    display:flex;
+.petimgs {
+    display: flex;
     justify-content: space-evenly;
-    border-style: none;
-    background-color: transparent;
+    align-items: flex-start;
     margin-top: 420px;
- 
 }
 #petname {
     display:fixed;
@@ -102,20 +100,43 @@ button{
 
 }
 
+
 #progressbars {
     display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    margin-top: 20px;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-left: 650px;
+    margin-top: -320px;
     color: rgb(255, 255, 255);
+    visibility: visible;
+}
+
+#progressbars progress {
+    margin-bottom: 10px;
+}
+#gameover {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    font-size: 60px;
+    color: white;
+}
+
+#healthbar-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 10px;
 }
 
 #healthbar {
-    appearance: none;
-    height: 20px;
-    width: 100%;
-    background-color: red;
-    border-radius: 10px;
-    outline: none;
+    width: 200px;
 }
