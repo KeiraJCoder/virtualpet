@@ -14,6 +14,8 @@ h1{
     text-align: center;
     font-size: 50px;
     color: rgb(0, 0, 0);
+    text-shadow: white 2px 0px;
+ 
 
 }
 
@@ -23,6 +25,7 @@ h1{
 }
 
 img{
+    margin-top:10%;
     width: 100px;
     height: 100px;
     justify-items: center;
@@ -45,7 +48,8 @@ button{
     justify-content: space-evenly;
     border-style: none;
     background-color: transparent;
-    margin-top: 420px;
+    position: relative;
+    
 }
 
 #petimgs img {
@@ -58,6 +62,8 @@ button{
 #petname {
     display:fixed;
     text-align: center;
+    text-shadow:black 1px 0px;
+    text-shadow: white 1px 0px;
 }
 
 .overlay {
@@ -76,6 +82,7 @@ button{
 .overlay h2 {
     font-size: 60px;
     color: white;
+    margin-top:30%;
     text-align: center;
 }
 
@@ -106,33 +113,24 @@ button{
     text-align: center;
     display: table; 
     justify-content: space-evenly;
-
 }
 
 
 #progressbars {
     display: flex;
-    margin-left: 650px;
-    margin-top: -320px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 50px;
     color: rgb(255, 255, 255);
     visibility: visible;
 }
 
 #progressbars progress {
-    width: 100%;
+    width: 200px;
     margin-bottom: 10px;
 }
 
-#gameover {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 50px;
-    color: red;
-    z-index: 9999;
-}
 
 #healthbar-container {
     display: flex;
@@ -140,6 +138,17 @@ button{
     align-items: center;
     flex-direction: column;
     margin-bottom: 10px;
+}
+
+#gameover {
+    padding-top:40%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 48px;
+    color: red;
+    z-index: 9999;
+    text-align: center; /* Center the text */
 }
 
 #healthbar {

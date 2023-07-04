@@ -11,6 +11,7 @@ let catImg = document.querySelector("#catimg");
 let P;
 let progressBars = document.querySelector("#progressbars");
 let gameOver = document.querySelector("#gameover");
+let timerElement = document.querySelector("#timer");
 
 let giveFood = document.querySelector("#feedbtn");
 let giveDrink = document.querySelector("#drinkbtn");
@@ -36,31 +37,54 @@ boredomBar.value = 100;
 toiletBar.value = 100;
 healthBar.value = 100;
 
-function updateHealth() {
-    const overallHealth = (hungerBar.value + thirstBar.value + energyBar.value + boredomBar.value + toiletBar.value) / 5;
-    healthBar.value = overallHealth;
+let startTime;
+let timerInterval;
 
+function startTimer() {
+  startTime = Date.now();
+  timerInterval = setInterval(updateTimer, 1000);
+}
+
+function updateTimer() {
+  const elapsedTime = Math.floor((Date.now() - startTime) / 1000);
+  const minutes = Math.floor(elapsedTime / 60);
+  const seconds = elapsedTime % 60;
+  const formattedTime = `${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
+  timerElement.textContent = formattedTime;
+}
+
+function stopTimer() {
+  clearInterval(timerInterval);
+}
+
+function updateHealth() {
+  if (P) {
+    healthBar.value = (hungerBar.value + thirstBar.value + energyBar.value + boredomBar.value + toiletBar.value) / 5;
     if (healthBar.value <= 0) {
-        gameOver.style.display = "block";
-        document.body.style.overflow = "hidden"; // Hide scrollbars
-        clearInterval(hunger);
-        clearInterval(thirst);
-        clearInterval(energy);
-        clearInterval(bored);
-        clearInterval(toilet);
+      gameOver.style.display = "block";
+      stopTimer();
+      clearInterval(hunger);
+      clearInterval(thirst);
+      clearInterval(energy);
+      clearInterval(bored);
+      clearInterval(toilet);
+      displayHighScore();
     }
+  }
 }
 
 healthBar.addEventListener("change", () => {
-    if (healthBar.value <= 0) {
-        gameOver.style.display = "block";
-        document.body.style.overflow = "hidden"; // Hide scrollbars
-        clearInterval(hunger);
-        clearInterval(thirst);
-        clearInterval(energy);
-        clearInterval(bored);
-        clearInterval(toilet);
-    }
+  if (healthBar.value <= 0) {
+    gameOver.style.display = "block";
+    stopTimer();
+    document.body.style.overflow = "hidden"; // Hide scrollbars
+    clearInterval(hunger);
+    clearInterval(thirst);
+    clearInterval(energy);
+    clearInterval(bored);
+    clearInterval(toilet);
+    displayHighScore();
+  }
 });
 
 let hunger = setInterval(() => {
@@ -115,56 +139,54 @@ petToilet.addEventListener("click", () => {
   toiletBar.value = Math.min(100, toiletBar.value + 20);
   updateHealth();
 });
-selectDog.addEventListener("click", () => {
-    const name = prompt("What is your Dog's name going to be?");
-    if (name) {
-        P = new Dog(name);
-        methodContainer.style.display = "block";
-        progressBars.style.display = "flex";
-        petContainer.style.display = "none";
-        petName.textContent = `${P.name}`;
-        P.startGame();
 
-        // Hide images and buttons for other animals
-        catImg.style.display = "none";
-        snakeImg.style.display = "none";
-        selectCat.style.display = "none";
-        selectSnake.style.display = "none";
-    }
+selectDog.addEventListener("click", () => {
+  const name = prompt("What is your Dog's name going to be?");
+  if (name !== null && name.trim() !== "") {
+    P = new Dog(name);
+    startGame();
+    catImg.style.display = "none";
+    snakeImg.style.display = "none";
+  }
 });
 
 selectSnake.addEventListener("click", () => {
-    const name = prompt("What is your Snake's name going to be?");
-    if (name) {
-        P = new Snake(name);
-        methodContainer.style.display = "block";
-        progressBars.style.display = "flex";
-        petContainer.style.display = "none";
-        petName.textContent = `${P.name}`;
-        P.startGame();
-
-        // Hide images and buttons for other animals
-        dogImg.style.display = "none";
-        catImg.style.display = "none";
-        selectDog.style.display = "none";
-        selectCat.style.display = "none";
-    }
+  const name = prompt("What is your Snake's name going to be?");
+  if (name !== null && name.trim() !== "") {
+    P = new Snake(name);
+    startGame();
+    dogImg.style.display = "none";
+    catImg.style.display = "none";
+  }
 });
 
 selectCat.addEventListener("click", () => {
-    const name = prompt("What is your Cat's name going to be?");
-    if (name) {
-        P = new Cat(name);
-        methodContainer.style.display = "block";
-        progressBars.style.display = "flex";
-        petContainer.style.display = "none";
-        petName.textContent = `${P.name}`;
-        P.startGame();
-
-        // Hide images and buttons for other animals
-        dogImg.style.display = "none";
-        snakeImg.style.display = "none";
-        selectDog.style.display = "none";
-        selectSnake.style.display = "none";
-    }
+  const name = prompt("What is your Cat's name going to be?");
+  if (name !== null && name.trim() !== "") {
+    P = new Cat(name);
+    startGame();
+    dogImg.style.display = "none";
+    snakeImg.style.display = "none";
+  }
 });
+
+function startGame() {
+  methodContainer.style.display = "block";
+  progressBars.style.display = "flex";
+  petContainer.style.display = "none";
+  petName.textContent = `${P.name}`;
+  P.startGame();
+  startTimer();
+}
+
+function displayHighScore() {
+  const elapsedTime = Math.floor((Date.now() - startTime) / 1000);
+  const minutes = Math.floor(elapsedTime / 60);
+  const seconds = elapsedTime % 60;
+  gameOver.innerHTML = `Game Over!<br><br>Time Alive:<br> ${minutes} minutes<br>${seconds} seconds`;
+  gameOver.style.display = "block";
+  gameOver.style.textAlign = "center"; // Center the message
+  gameOver.style.top = "50%"; // Position it lower on the screen
+}
+
+updateHealth();
