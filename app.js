@@ -37,16 +37,31 @@ toiletBar.value = 100;
 healthBar.value = 100;
 
 function updateHealth() {
-  healthBar.value = (hungerBar.value + thirstBar.value + energyBar.value + boredomBar.value + toiletBar.value) / 5;
-  if (healthBar.value <= 0) {
-    gameOver.style.display = "block";
-    clearInterval(hunger);
-    clearInterval(thirst);
-    clearInterval(energy);
-    clearInterval(bored);
-    clearInterval(toilet);
-  }
+    const overallHealth = (hungerBar.value + thirstBar.value + energyBar.value + boredomBar.value + toiletBar.value) / 5;
+    healthBar.value = overallHealth;
+
+    if (healthBar.value <= 0) {
+        gameOver.style.display = "block";
+        document.body.style.overflow = "hidden"; // Hide scrollbars
+        clearInterval(hunger);
+        clearInterval(thirst);
+        clearInterval(energy);
+        clearInterval(bored);
+        clearInterval(toilet);
+    }
 }
+
+healthBar.addEventListener("change", () => {
+    if (healthBar.value <= 0) {
+        gameOver.style.display = "block";
+        document.body.style.overflow = "hidden"; // Hide scrollbars
+        clearInterval(hunger);
+        clearInterval(thirst);
+        clearInterval(energy);
+        clearInterval(bored);
+        clearInterval(toilet);
+    }
+});
 
 let hunger = setInterval(() => {
   hungerBar.value--;
